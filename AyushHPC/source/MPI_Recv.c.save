@@ -1,0 +1,44 @@
+
+#include "mex.h"
+#include "mpi.h"
+void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
+{
+	
+	MPI_Status status;
+	if(nrhs!=5) 
+	{
+		mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nrhs","5 inputs required.");
+	}
+	if(nlhs!=3) 
+	{
+		mexErrMsgIdAndTxt("MyToolbox:arrayProduct:nlhs","3 output required.");
+	}
+	/*double, single(float), int, long,*/
+	if (*((MPI_Datatype *)mxGetData(prhs[1])) == ((MPI_Datatype)11))
+	plhs[1] = mxCreateDoubleMatrix((int)mxGetScalar(prhs[0]),1,mxREAL);
+	int m =1,n =1;
+        int nfields = 5;
+        const char *fieldnames[] =                      {                       "count_lo",
+                                                                "count_hi_and_cancelled",
+                                                                "MPI_SOURCE",
+                                                                "MPI_TAG",
+                                                                "MPI_ERROR"     };
+        plhs[2] = mxCreateStructMatrix(m, n, nfields, fieldnames);
+
+
+	plhs[0]=mxCreateDoubleScalar((double)MPI_Recv(							mxGetData(plhs[1]),  /*buff*/
+													(int)mxGetScalar(prhs[0]),  /* count */
+													*((MPI_Datatype *)mxGetData(prhs[1])),  /*datatype*/
+													(int)mxGetScalar(prhs[2]),  /*source*/
+													(int)mxGetScalar(prhs[3]), /*tag*/
+													*((MPI_Comm *)mxGetData(prhs[4])), /*comm*/
+													mxGetData(plhs[2]) /*status*/
+												));
+/*	*((int *)mxGetData(mxGetField(plhs[2],0,"count_lo")))=status.count_lo;
+	*((int *)mxGetData(mxGetField(plhs[2],0,"count_hi_and_cancelled")))=status.count_hi_and_cancelled;
+	*((int *)mxGetData(mxGetField(plhs[2],0,"MPI_SOURCE")))=status.MPI_SOURCE;
+	*((int *)mxGetData(mxGetField(plhs[2],0,"MPI_TAG")))=status.MPI_TAG;
+	*((int *)mxGetData(mxGetField(plhs[2],0,"MPI_ERROR")))=status.MPI_ERROR;	
+	*/	
+	return; 
+}

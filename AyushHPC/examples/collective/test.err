@@ -1,0 +1,16 @@
+{Error using horzcat
+Dimensions of matrices being concatenated are not consistent.
+
+Error in test (line 47)
+disp(['I am rank ' num2str(rank) ' recv_buff is:  ' num2str(recv_buff)]);
+% Print received array values on any of the processes (it should be same for
+all processes)
+} 
+{Error using horzcat
+Dimensions of matrices being concatenated are not consistent.
+
+Error in test (line 47)
+disp(['I am rank ' num2str(rank) ' recv_buff is:  ' num2str(recv_buff)]);
+% Print received array values on any of the processes (it should be same for
+all processes)
+} 

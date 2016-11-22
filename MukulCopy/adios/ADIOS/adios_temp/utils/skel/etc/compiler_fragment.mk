@@ -1,0 +1,7 @@
+CC = mpicc
+CFLAGS = -fPIC
+FC = mpif90
+FCFLAGS = -g
+FCLIBS =  -L/usr/lib64 -L/lib -L/opt/mvapich2/intel/ib/lib -L/opt/intel/composer_xe_2013.1.117/compiler/lib/intel64 -L/opt/intel/composer_xe_2013.1.117/ipp/../compiler/lib/intel64 -L/opt/intel/composer_xe_2013.1.117/ipp/lib/intel64 -L/opt/intel/composer_xe_2013.1.117/mkl/lib/intel64 -L/opt/intel/composer_xe_2013.1.117/tbb/lib/intel64//cc4.1.0_libc2.4_kernel2.6.16.21 -L/opt/gridengine/lib/lx26-amd64 -L/opt/intel/composer_xe_2013.1.117/debugger/lib/intel64 -L/opt/intel/composer_xe_2013.1.117/mpirt/lib/intel64 -L/opt/gnu/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.8.1/ -L/opt/gnu/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.8.1/../../../../lib64 -L/opt/gnu/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.8.1/../../../../lib64/ -L/lib/../lib64 -L/lib/../lib64/ -L/usr/lib/../lib64 -L/usr/lib/../lib64/ -L/opt/intel/composer_xe_2013.1.117/compiler/lib/intel64/ -L/opt/intel/composer_xe_2013.1.117/ipp/../compiler/lib/intel64/ -L/opt/intel/composer_xe_2013.1.117/ipp/lib/intel64/ -L/opt/intel/composer_xe_2013.1.117/mkl/lib/intel64/ -L/opt/intel/composer_xe_2013.1.117/debugger/lib/intel64/ -L/opt/intel/composer_xe_2013.1.117/mpirt/lib/intel64/ -L/opt/gnu/gcc/lib/gcc/x86_64-unknown-linux-gnu/4.8.1/../../../ -L/lib64 -L/lib/ -L/usr/lib -lmpichf90 -lmpich -lopa -lmpl -libmad -lrdmacm -libumad -libverbs -lrt -llimic2 -lpthread -lifport -lifcore -limf -lsvml -lm -lipgo -lirc -lirc_s -ldl
+LDFLAGS = 
+prefix = /home/gxinchen/HPCmatlab_working/adios/ADIOS/adios

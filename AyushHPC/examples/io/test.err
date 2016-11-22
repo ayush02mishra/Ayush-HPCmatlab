@@ -1,0 +1,22 @@
+
+
+##############################################
+INFORMATION
+##############################################
+
+Intel MPI uses mpirun rather than mpiexec. Additionally, you must specify the
+number of CPUs to run on, it is not automatically determined. For example, run
+this on a 16 cpu job:
+
+mpirun -n 16 YourMPIBinary
+
+The standard mpi compilation binaries mpicc, mpif90, etc use the GNU compilers
+by default (gcc, gfortran, etc). If you wish you use the intel compilers you
+must run mpiicc, mpiicpc, or mpiifort instead. You can also set an environment
+variable to set a compiler manually as follows:
+
+I_MPI_CC=icc    mpicc  ...
+I_MPI_CXX=icpc  mpicxx ...
+I_MPI_F77=ifort mpif77 ...
+I_MPI_F90=ifort mpif90 ...
+

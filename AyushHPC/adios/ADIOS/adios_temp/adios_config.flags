@@ -1,0 +1,40 @@
+#
+# Configuration values from configure script
+#
+
+# Install directory
+ADIOS_DIR="/home/gxinchen/HPCmatlab_working/adios/ADIOS/adios"
+
+# Flags to build code using ADIOS write API (and read API)
+ADIOS_INC="-I${ADIOS_DIR}/include -I/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/include     "
+ADIOS_CLIB="-L${ADIOS_DIR}/lib -ladios -L/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/lib  -lm -lmxml    "
+ADIOS_FLIB="-L${ADIOS_DIR}/lib -ladiosf -L/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/lib  -lm -lmxml    "
+ADIOS_V1_FLIB="-L${ADIOS_DIR}/lib -ladiosf_v1 -L/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/lib  -lm -lmxml    "
+
+# Flags to build code using ADIOS read API only
+ADIOSREAD_INC="-I${ADIOS_DIR}/include      "
+ADIOSREAD_V1_INC="-I${ADIOS_DIR}/include -DADIOS_USE_READ_API_1      "
+ADIOSREAD_CLIB="-L${ADIOS_DIR}/lib -ladiosread   -lm  "
+ADIOSREAD_FLIB="-L${ADIOS_DIR}/lib -ladiosreadf   -lm  "
+ADIOSREAD_V1_FLIB="-L${ADIOS_DIR}/lib -ladiosreadf_v1   -lm  "
+
+# Flags to build code using ADIOS read API only in a sequential code (no MPI)
+ADIOSREAD_SEQ_INC="-I${ADIOS_DIR}/include -D_NOMPI     "
+ADIOSREAD_SEQ_V1_INC="-I${ADIOS_DIR}/include -DADIOS_USE_READ_API_1 -D_NOMPI     "
+ADIOSREAD_SEQ_CLIB="-L${ADIOS_DIR}/lib -ladiosread_nompi   -lm  "
+ADIOSREAD_SEQ_FLIB="-L${ADIOS_DIR}/lib -ladiosreadf_nompi   -lm  "
+ADIOSREAD_SEQ_V1_FLIB="-L${ADIOS_DIR}/lib -ladiosreadf_nompi_v1   -lm  "
+
+#Flags to build code using ADIOS write API in a sequential code (no MPI)
+ADIOS_SEQ_INC="-I${ADIOS_DIR}/include -D_NOMPI -I/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/include     "
+ADIOS_SEQ_CLIB="-L${ADIOS_DIR}/lib -ladios_nompi -L/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/lib  -lm -lmxml    "
+ADIOS_SEQ_FLIB="-L${ADIOS_DIR}/lib -ladiosf_nompi -L/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/lib  -lm -lmxml    "
+ADIOS_SEQ_V1_FLIB="-L${ADIOS_DIR}/lib -ladiosf_nompi_v1 -L/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/lib  -lm -lmxml    "
+
+#The following flags are not used. It is only for internal utilities of ADIOS, using libadios_internal_nompi.a
+ADIOS_INT_INC="-I${ADIOS_DIR}/include -D_NOMPI -I/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/include "
+ADIOS_INT_CLIB="-L${ADIOS_DIR}/lib -ladios_internal_nompi -L/home/gxinchen/HPCmatlab_working/adios/ADIOS/mxml/lib -lm -lmxml  "
+
+VERSIONSTRING="1.9.0"
+
+SRCDIR="/home/gxinchen/HPCmatlab_working/adios/ADIOS/adios_temp"
