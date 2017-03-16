@@ -1,2 +1,0 @@
-include mpi.cfg
-include conf/*.py

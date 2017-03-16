@@ -1,1 +1,0 @@
-SUBDIRS=process_select global_range_select
